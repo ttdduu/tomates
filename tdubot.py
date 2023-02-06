@@ -108,7 +108,7 @@ def consecuencia(m):
         bot.send_message(cid,f'{cid}')
         return
     else:
-        os.system('rm /home/tdu/touch.txt')
+        os.system('rm /home/tdu/je.txt')
         bot.send_message(cid,'borrón y cuenta nueva. Estoy haciendo esto porque sé que puedo. Yo puedo.')
 
 @bot.message_handler(commands=['update_bot'])
