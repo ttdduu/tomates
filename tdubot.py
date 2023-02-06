@@ -131,7 +131,7 @@ def apagar(m):
         os.system('cd /home/tdu/code/tomates && git pull origin')
         os.system('a ver...')
         os.system('pid=$(ps -ef | grep python | awk "{print $2}; " | head -n
-            1'); pkill $pid)
+            1'); pkill $pid')
 
 # }}}
 # {{{tomate
