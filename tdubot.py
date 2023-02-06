@@ -18,7 +18,7 @@ log_comandos_dir = f'{home}/log_telegram.txt'
 log_tomates_dir = f'{home}/log_tomates.json'
 
 whitelist = [865644126]
-
+#blablablabla
 
 # {{{ comandos
 @bot.message_handler(commands=['start'])
