@@ -108,8 +108,8 @@ def consecuencia(m):
         bot.send_message(cid,f'{cid}')
         return
     else:
-        os.system('rm /home/tdu/je.txt')
-        bot.send_message(cid,'borrón y cuenta nueva. Estoy haciendo esto porque sé que puedo. Yo puedo.')
+        os.system('echo {} > /home/tdu/Dropbox/log_tomates.json')
+        bot.send_message(cid,'borrón y cuenta nueva. Estoy imponiéndome esta consecuencia porque sé que puedo. Quiero mejorar definitivamente. Es el momento de crecer y ser mucho, mucho mejor.')
 
 @bot.message_handler(commands=['update_bot'])
 def update_bot(m):
