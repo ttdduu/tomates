@@ -18,7 +18,6 @@ log_comandos_dir = f'{home}/log_telegram.txt'
 log_tomates_dir = f'{home}/log_tomates.json'
 
 whitelist = [865644126]
-#blablablabla
 
 # {{{ comandos
 @bot.message_handler(commands=['start'])
@@ -120,6 +119,16 @@ def update_bot(m):
         return
     else:
         os.system('cd /home/tdu/code/tomates && git pull origin')
+
+@bot.message_handler(commands=['apagar'])
+def update_bot(m):
+    cid = m.chat.id
+    if cid not in whitelist:
+        bot.send_message(cid,'es un bot privado, por favor no interferir')
+        bot.send_message(cid,f'{cid}')
+        return
+    else:
+        bot.close()
 
 # }}}
 # {{{tomate
