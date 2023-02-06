@@ -128,7 +128,7 @@ def apagar(m):
         bot.send_message(cid,f'{cid}')
         return
     else:
-        bot.close()
+        bot.stop_polling()
 
 # }}}
 # {{{tomate
