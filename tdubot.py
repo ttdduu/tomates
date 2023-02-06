@@ -120,7 +120,7 @@ def update_bot(m):
     else:
         os.system('cd /home/tdu/code/tomates && git pull origin')
 
-@bot.message_handler(commands=['apagar'])
+@bot.message_handler(commands=['restart'])
 def apagar(m):
     cid = m.chat.id
     if cid not in whitelist:
@@ -128,7 +128,10 @@ def apagar(m):
         bot.send_message(cid,f'{cid}')
         return
     else:
-        bot.stop_polling()
+        os.system('cd /home/tdu/code/tomates && git pull origin)
+        os.system('a ver...')
+        os.system('pid=(ps -ef | grep python | awk "{print $2}; " | head -n
+            1'); pkill $pid)
 
 # }}}
 # {{{tomate
