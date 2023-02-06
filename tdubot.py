@@ -128,9 +128,9 @@ def apagar(m):
         bot.send_message(cid,f'{cid}')
         return
     else:
-        os.system('cd /home/tdu/code/tomates && git pull origin)
+        os.system('cd /home/tdu/code/tomates && git pull origin')
         os.system('a ver...')
-        os.system('pid=(ps -ef | grep python | awk "{print $2}; " | head -n
+        os.system('pid=$(ps -ef | grep python | awk "{print $2}; " | head -n
             1'); pkill $pid)
 
 # }}}
