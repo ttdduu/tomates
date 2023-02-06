@@ -129,7 +129,7 @@ def apagar(m):
         return
     else:
         os.system('cd /home/tdu/code/tomates && git pull origin')
-        os.system('pid=$(ps -ef | grep python | awk "{print $2}; " | head -n 1) && kill $pid')
+        os.system('pid=$(ps -ef | grep python | awk "{print $2}; " | head -n 1) && echo $pid')
 # }}}
 # {{{tomate
 def cargar():
