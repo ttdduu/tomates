@@ -28,7 +28,7 @@ def command_long_text(m):
         bot.send_message(cid,f'{cid}')
         return
     else:
-        bot.send_message(cid,'hola')
+        bot.send_message(cid,'funcionó')
 
 @bot.message_handler(commands=['exec'])
 def command_long_text(m):
