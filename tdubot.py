@@ -43,6 +43,7 @@ def command_long_text(m):
         result = f.read()
         bot.send_message(cid,"Resultado: " +result, reply_markup=markup)
 
+
 @bot.message_handler(commands=['execlist'])
 def command_long_text(m):
     cid = m.chat.id
@@ -98,6 +99,27 @@ markup.row('/error','/obstaculo','/fatiga')
 
 markup.row('/gracias','/lindo','/dream')
 
+
+@bot.message_handler(commands=['braindead','freeze','block','fatiga','nails','lumbar'])
+def consecuencia(m):
+    cid = m.chat.id
+    if cid not in whitelist:
+        bot.send_message(cid,'es un bot privado, por favor no interferir')
+        bot.send_message(cid,f'{cid}')
+        return
+    else:
+        os.system('rm /home/tdu/touch.txt')
+        bot.send_message(cid,'borrón y cuenta nueva. Estoy haciendo esto porque sé que puedo. Yo puedo.')
+
+@bot.message_handler(commands=['update_bot'])
+def update_bot(m):
+    cid = m.chat.id
+    if cid not in whitelist:
+        bot.send_message(cid,'es un bot privado, por favor no interferir')
+        bot.send_message(cid,f'{cid}')
+        return
+    else:
+        os.system('cd /home/tdu/code/tomates && git pull origin')
 
 # }}}
 # {{{tomate
