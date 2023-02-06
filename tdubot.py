@@ -28,7 +28,7 @@ def command_long_text(m):
         bot.send_message(cid,f'{cid}')
         return
     else:
-        bot.send_message(cid,'workedddd')
+        bot.send_message(cid,'hola')
 
 @bot.message_handler(commands=['exec'])
 def command_long_text(m):
@@ -83,7 +83,6 @@ commands = {
         'execlist': 'ejectuar lista de comandos'
         }
 markup = types.ReplyKeyboardMarkup()
-# markup.row('/tomate','/sadtencion','/atencion','/block','/ducha','/sadsocial','/social','/fatiga','/fog','/freeze','/energia','/spm','/lumbar','/brainweak','/braindead','/cringe','/nails','/estudio','/creatina')
 
 markup.row('/tomate','/energia','/atencion','/spm')
 markup.row('/social','/creatina','/ducha','/pos')
@@ -111,17 +110,17 @@ def consecuencia(m):
         bot.send_message(cid,'borrón y cuenta nueva. Estoy imponiéndome esta consecuencia porque sé que puedo. Quiero mejorar definitivamente. Es el momento de crecer y ser mucho, mucho mejor.')
 
 
-@bot.message_handler(commands=['restart'])
-def apagar(m):
-    cid = m.chat.id
-    if cid not in whitelist:
-        bot.send_message(cid,'es un bot privado, por favor no interferir')
-        bot.send_message(cid,f'{cid}')
-        return
-    else:
-        os.system('cd /home/tdu/code/tomates && git pull origin')
-        os.system("pid=$(ps -ef | grep tdubot | awk '{print $2}' | head -n 1 | awk '{match($0,/[0-9]+/); print substr($0,RSTART,RLENGTH)}') && kill $pid")
-        os.system("tdubot.py")
+# @bot.message_handler(commands=['restart'])
+# def apagar(m):
+    # cid = m.chat.id
+    # if cid not in whitelist:
+        # bot.send_message(cid,'es un bot privado, por favor no interferir')
+        # bot.send_message(cid,f'{cid}')
+        # return
+    # else:
+        # os.system('cd /home/tdu/code/tomates && git pull origin')
+        # os.system("pid=$(ps -ef | grep tdubot | awk '{print $2}' | head -n 1 | awk '{match($0,/[0-9]+/); print substr($0,RSTART,RLENGTH)}') && kill $pid")
+        # os.system("tdubot.py")
 # }}}
 # {{{tomate
 def cargar():
