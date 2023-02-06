@@ -121,7 +121,7 @@ def update_bot(m):
         os.system('cd /home/tdu/code/tomates && git pull origin')
 
 @bot.message_handler(commands=['apagar'])
-def update_bot(m):
+def apagar(m):
     cid = m.chat.id
     if cid not in whitelist:
         bot.send_message(cid,'es un bot privado, por favor no interferir')
