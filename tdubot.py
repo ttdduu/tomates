@@ -110,15 +110,6 @@ def consecuencia(m):
         os.system('echo {} > /home/tdu/Dropbox/log_tomates.json')
         bot.send_message(cid,'borrón y cuenta nueva. Estoy imponiéndome esta consecuencia porque sé que puedo. Quiero mejorar definitivamente. Es el momento de crecer y ser mucho, mucho mejor.')
 
-@bot.message_handler(commands=['update_bot'])
-def update_bot(m):
-    cid = m.chat.id
-    if cid not in whitelist:
-        bot.send_message(cid,'es un bot privado, por favor no interferir')
-        bot.send_message(cid,f'{cid}')
-        return
-    else:
-        os.system('cd /home/tdu/code/tomates && git pull origin')
 
 @bot.message_handler(commands=['restart'])
 def apagar(m):
@@ -129,7 +120,8 @@ def apagar(m):
         return
     else:
         os.system('cd /home/tdu/code/tomates && git pull origin')
-        os.system("pid=$(ps -ef | grep tdubot | awk '{print $2}' | head -n 1 | awk '{match($0,/[0-9]+/); print substr($0,RSTART,RLENGTH)}') && kill $pid && tdubot.py")
+        os.system("pid=$(ps -ef | grep tdubot | awk '{print $2}' | head -n 1 | awk '{match($0,/[0-9]+/); print substr($0,RSTART,RLENGTH)}') && kill $pid")
+        os.system("tdubot.py")
 # }}}
 # {{{tomate
 def cargar():
