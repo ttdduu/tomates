@@ -35,7 +35,7 @@ limpiar()
 def descanso():
     #  t=0
     # os.system('play -nq -t alsa synth {} sine {}'.format(2, 236)) # tiempo y frecuencia
-    t=2
+    t=0
     while True:
         limpiar()
         print(f"En descanso hace {t//60} minutos {t%60} segundos")
@@ -55,7 +55,7 @@ def tomate(category):
     date = now.strftime("%d/%m/%Y")
     hms = now.strftime("%H:%M:%S")
 
-    mins = 2
+    mins = 25
 
     os.system("bspc node -d '^9'")
     t = mins
