@@ -34,7 +34,7 @@ limpiar()
 
 def descanso():
     #  t=0
-    os.system('play -nq -t alsa synth {} sine {}'.format(2, 236)) # tiempo y frecuencia
+    # os.system('play -nq -t alsa synth {} sine {}'.format(2, 236)) # tiempo y frecuencia
     t=2
     while True:
         limpiar()
@@ -81,5 +81,5 @@ def tomate(category):
 
 main = Menu("Categorías", [
     Menu("academic", [Action(i, lambda: tomate(i)) for i in ac]),
-    Menu("extra academic", [Action(i, lambda: tomate(i)) for i in exa_ac])])
+    Menu("extra academic", [Action(i, lambda: tomate(i)) for i in ex_ac])])
 main.navigate()
