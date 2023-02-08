@@ -98,7 +98,7 @@ markup.row('/error','/obstaculo','/fatiga')
 markup.row('/gracias','/lindo','/dream')
 
 
-@bot.message_handler(commands=['braindead','freeze','block','fatiga','nails','lumbar'])
+@bot.message_handler(commands=['braindead','freeze','block','fatiga','nails','lumbar','error'])
 def consecuencia(m):
     cid = m.chat.id
     if cid not in whitelist:
