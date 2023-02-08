@@ -8,7 +8,8 @@ import time
 from datetime import datetime
 from datetime import timedelta
 import json
-from categorias_tomates import categs as categs
+from categorias_tomates import academic as ac
+from categorias_tomates import extra_academic as ex_ac
 
 token = '5843649088:AAGzlivbRewGy6opGMLgCACucz_hKJevBlQ'
 bot = telebot.TeleBot(token)
@@ -20,6 +21,8 @@ log_tomates_dir = f'{home}/log_tomates.json'
 whitelist = [865644126]
 
 # {{{ comandos
+
+# {{{ start
 @bot.message_handler(commands=['start'])
 def command_long_text(m):
     cid = m.chat.id
@@ -29,6 +32,9 @@ def command_long_text(m):
         return
     else:
         bot.send_message(cid,'funcionó carajo! confirmo!!!!')
+# }}}
+
+# {{{ exec
 
 @bot.message_handler(commands=['exec'])
 def command_long_text(m):
@@ -41,7 +47,9 @@ def command_long_text(m):
         f = os.popen(m.text[len("/exec "):])
         result = f.read()
         bot.send_message(cid,"Resultado: " +result, reply_markup=markup)
+# }}}
 
+# {{{ execlist
 
 @bot.message_handler(commands=['execlist'])
 def command_long_text(m):
@@ -59,6 +67,9 @@ def command_long_text(m):
             result = f.read()
             bot.send_message(cid, "Resultado: " + result, )
         bot.send_message(cid,"Comandos ejecutados", reply_markup=markup)
+# }}}
+
+# {{{ cd
 
 @bot.message_handler(commands=['cd'])
 def command_long_text(m):
@@ -74,6 +85,7 @@ def command_long_text(m):
         f = os.popen("pwd")
         result = f.read()
         bot.send_message(cid,"Directorio :"+result, reply_markup=markup)
+# }}}
 
 
 commands = {
@@ -82,6 +94,9 @@ commands = {
         'cd': 'cambiar de directorio',
         'execlist': 'ejectuar lista de comandos'
         }
+
+# {{{ reply keyboard
+
 markup = types.ReplyKeyboardMarkup()
 
 markup.row('/tomate','/energia','/atencion','/spm')
@@ -96,8 +111,9 @@ markup.row('/sadsocial','/lumbar','/nails')
 markup.row('/error','/obstaculo','/fatiga')
 
 markup.row('/gracias','/lindo','/dream')
+# }}}
 
-
+# {{{ consecuencia
 @bot.message_handler(commands=['braindead','freeze','block','fatiga','nails','lumbar','error'])
 def consecuencia(m):
     cid = m.chat.id
@@ -108,7 +124,9 @@ def consecuencia(m):
     else:
         os.system('echo {} > /home/tdu/Dropbox/log_tomates.json')
         bot.send_message(cid,'borrón y cuenta nueva. Estoy imponiéndome esta consecuencia porque sé que puedo. Quiero mejorar definitivamente. Es el momento de crecer y ser mucho, mucho mejor.')
+# }}}
 
+# {{{ restart
 
 @bot.message_handler(commands=['restart'])
 def apagar(m):
@@ -118,10 +136,14 @@ def apagar(m):
         bot.send_message(cid,f'{cid}')
         return
     else:
-        os.system('cd /home/tdu/code/tomates && git pull origin')
+        os.system('cd /home/tdu/code/tomates && git pull origin main')
         os.system("pid=$(ps -ef | grep tdubot | awk '{print $2}' | head -n 1 | awk '{match($0,/[0-9]+/); print substr($0,RSTART,RLENGTH)}') && kill $pid && st -e tdubot.py")
 # }}}
-# {{{tomate
+
+# }}}
+
+# {{{ tomate
+
 def cargar():
     global registro
     with open(log_tomates_dir) as json_registro:
@@ -134,7 +156,7 @@ def guardar():
 def markup_inline():
     in_markup = types.InlineKeyboardMarkup()
     in_markup.width = 2
-    for i in categs:
+    for i in ac+ex_ac:
         in_markup.add(
                 types.InlineKeyboardButton(str(i), callback_data= i)
                 )

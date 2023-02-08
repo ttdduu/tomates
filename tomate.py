@@ -7,7 +7,8 @@ from datetime import datetime
 import string
 from menu import *
 from inputimeout import inputimeout, TimeoutOccurred
-from categorias_tomates import categs as categs
+from categorias_tomates import academic as ac
+from categorias_tomates import extra_academic as ex_ac
 
 def limpiar():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -54,7 +55,7 @@ def tomate(category):
     date = now.strftime("%d/%m/%Y")
     hms = now.strftime("%H:%M:%S")
 
-    mins = 25
+    mins = 2
 
     os.system("bspc node -d '^9'")
     t = mins
@@ -65,11 +66,11 @@ def tomate(category):
         t -= 1
     if date in registro.keys():
         if category in registro[date].keys():
-            registro[date][category].append([hms, mins])
+            registro[date][category]+= 1
         else:
-            registro[date][category] = [[hms, mins]]
+            registro[date][category] = 1
     else:
-        registro[date] = {category: [[hms, mins]]}
+        registro[date] = {category: 1}
     guardar()
     limpiar()
 
@@ -79,16 +80,6 @@ def tomate(category):
     descanso()
 
 main = Menu("Categorías", [
-    # Action(categs[0], lambda: tomate(categs[0])),
-    Menu("Estudio", [
-        Action("NFI", lambda: tomate("NFI")),
-        Action("LSD", lambda: tomate("LSD"))
-        ]
-        ),
-    Menu("Extra Academic", [
-        Action("Exc", lambda: tomate("Exc")),
-        Action("Code", lambda: tomate("Code")),
-        Action("Libro", lambda: tomate("Libro")),
-        Action("Guitar", lambda: tomate("Guitar"))])])
-
+    Menu("academic", [Action(i, lambda: tomate(i)) for i in ac]),
+    Menu("extra academic", [Action(i, lambda: tomate(i)) for i in exa_ac])])
 main.navigate()
