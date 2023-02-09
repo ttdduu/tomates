@@ -114,6 +114,7 @@ markup.row('/gracias','/lindo','/dream')
 # }}}
 
 # {{{ consecuencia
+
 @bot.message_handler(commands=['braindead','freeze','block','fatiga','nails','lumbar','error'])
 def consecuencia(m):
     cid = m.chat.id
@@ -123,7 +124,7 @@ def consecuencia(m):
         return
     else:
         os.system('echo {} > /home/tdu/Dropbox/log_tomates.json')
-        bot.send_message(cid,'borrón y cuenta nueva. Estoy imponiéndome esta consecuencia porque sé que puedo. Quiero mejorar definitivamente. Es el momento de crecer y ser mucho, mucho mejor.')
+        bot.reply_to(m,'borrón y cuenta nueva. Estoy imponiéndome esta consecuencia porque sé que puedo. Quiero mejorar definitivamente. Es el momento de crecer y ser mucho, mucho mejor.')
 # }}}
 
 # {{{ restart
