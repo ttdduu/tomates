@@ -46,9 +46,20 @@ def descanso():
         except TimeoutOccurred:
             if t >= 5*60 and t%30==0:
                 t +=1
-                os.system('play -nq -t alsa synth {} sine {}'.format(1, 264)) # tiempo y frecuencia
+                # os.system('play -nq -t alsa synth {} sine {} gain 0.5'.format(1, 241)) # tiempo y frecuencia
                 os.system("notify-send -t 10000 \"Recreo cumplido\"")
             continue
+
+
+def sound(t,freq):
+    sonido = os.system('play -nq -t alsa synth {} sine {} norm -1 gain -20'.format(t, freq))
+    return sonido
+
+def notif_sound():
+    sound(3,100)
+    sound(3,150)
+    sound(1,350)
+    sound(1,400)
 
 def tomate(category):
     now = datetime.now()
@@ -74,7 +85,7 @@ def tomate(category):
     guardar()
     limpiar()
 
-    os.system('play -nq -t alsa synth {} sine {}'.format(1, 440)) # tiempo y frecuencia
+    notif_sound()
     os.system("notify-send -t 60000 \"Fin del tomate\"")
     os.system("polybar-msg hook tomato 1")
     descanso()
