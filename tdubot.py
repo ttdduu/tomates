@@ -124,6 +124,7 @@ def consecuencia(m):
         return
     else:
         os.system('echo {} > /home/tdu/Dropbox/log_tomates.json')
+        os.system('dropbox start')
         bot.reply_to(m,'borrón y cuenta nueva. Estoy imponiéndome esta consecuencia porque sé que puedo. Quiero mejorar definitivamente. Es el momento de crecer y ser mucho, mucho mejor.')
 # }}}
 
