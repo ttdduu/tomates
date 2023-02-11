@@ -94,7 +94,7 @@ markup = types.ReplyKeyboardMarkup()
 markup.row('/tomate','/energia','/atencion','/spm')
 markup.row('/social','/creatina','/ducha','/pos')
 
-markup.row('/ithink','/reg','/imp')
+markup.row('/ithink','/reg','/imp','/estudio')
 
 markup.row('/sadtencion','/brainweak','/braindead')
 markup.row('/cringe','/freeze','/block','/lumbar')
