@@ -87,14 +87,6 @@ def command_long_text(m):
         bot.send_message(cid,"Directorio :"+result, reply_markup=markup)
 # }}}
 
-
-commands = {
-        'tomate': 'registrar un tomate',
-        'exec': 'ejecutar un comando',
-        'cd': 'cambiar de directorio',
-        'execlist': 'ejectuar lista de comandos'
-        }
-
 # {{{ reply keyboard
 
 markup = types.ReplyKeyboardMarkup()
@@ -105,17 +97,17 @@ markup.row('/social','/creatina','/ducha','/pos')
 markup.row('/ithink','/reg','/imp')
 
 markup.row('/sadtencion','/brainweak','/braindead')
-markup.row('/cringe','/freeze','/block','/ans')
+markup.row('/cringe','/freeze','/block','/lumbar')
 
-markup.row('/sadsocial','/lumbar','/nails')
-markup.row('/error','/obstaculo','/fatiga')
+markup.row('/alarm','/error','/nails','/ans')
+markup.row('/fatiga','/obstaculo','/sadsocial')
 
 markup.row('/gracias','/lindo','/dream')
 # }}}
 
 # {{{ consecuencia
 
-@bot.message_handler(commands=['braindead','freeze','block','fatiga','nails','lumbar','error'])
+@bot.message_handler(commands=['braindead','freeze','block','fatiga','nails','lumbar','error','alarm'])
 def consecuencia(m):
     cid = m.chat.id
     if cid not in whitelist:
