@@ -96,10 +96,10 @@ markup.row('/social','/creatina','/ducha','/pos')
 
 markup.row('/ithink','/reg','/imp','/estudio')
 
-markup.row('/sadtencion','/brainweak','/braindead')
-markup.row('/cringe','/freeze','/block','/lumbar')
+markup.row('/soltar','/brainweak','/braindead')
+markup.row('/cringe','/freeze','/block','/ans')
 
-markup.row('/alarm','/error','/nails','/ans')
+markup.row('/alarm','/error','/nails','/lumbar')
 markup.row('/fatiga','/obstaculo','/sadsocial')
 
 markup.row('/gracias','/lindo','/dream')
@@ -107,7 +107,9 @@ markup.row('/gracias','/lindo','/dream')
 
 # {{{ consecuencia
 
-@bot.message_handler(commands=['braindead','freeze','block','fatiga','nails','lumbar','error','alarm'])
+errores = ['braindead','freeze','block','fatiga','nails','error','alarm',\
+        'soltar']
+@bot.message_handler(commands=errores)
 def consecuencia(m):
     cid = m.chat.id
     if cid not in whitelist:
@@ -118,6 +120,7 @@ def consecuencia(m):
         os.system('echo {} > /home/tdu/Dropbox/log_tomates.json')
         os.system('dropbox start')
         bot.reply_to(m,'borrón y cuenta nueva. Estoy imponiéndome esta consecuencia porque sé que puedo. Quiero mejorar definitivamente. Es el momento de crecer y ser mucho, mucho mejor.')
+        os.system("polybar-msg hook tomato 1")
 # }}}
 
 # {{{ restart
