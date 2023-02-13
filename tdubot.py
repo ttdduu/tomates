@@ -190,6 +190,7 @@ def sumar_tomate():
     guardar()
     '''lo hago sin hms xq no es relevante la info de cuándo hago cada tomate'''
     os.system('dropbox start')
+    os.system("polybar-msg hook tomato 1")
 
 # }}}
 
