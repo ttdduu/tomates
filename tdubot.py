@@ -91,18 +91,21 @@ def command_long_text(m):
 
 markup = types.ReplyKeyboardMarkup()
 
-markup.row('/tomate','/energia','/atencion','/spm')
-markup.row('/social','/creatina','/ducha','/pos')
+markup.row('/tomate','/exc_fondo','/spm')
+markup.row('/social','/ducha','/pos')
+markup.row('/gracias','/lindo','/estudio')
 
-markup.row('/ithink','/reg','/imp','/estudio')
+markup.row('/reg','/imp')
 
-markup.row('/soltar','/brainweak','/braindead')
-markup.row('/cringe','/freeze','/block','/ans')
+markup.row('/lumbar','/brainweak')
+markup.row('/obstaculo','/sadsocial')
 
-markup.row('/alarm','/error','/nails','/lumbar')
-markup.row('/fatiga','/obstaculo','/sadsocial')
+# las de consecuencias
+markup.row('/alarm','/nails','/soltar')
+markup.row('/error','/braindead')
+markup.row('/fatiga','/freeze','/block')
 
-markup.row('/gracias','/lindo','/dream')
+
 # }}}
 
 # {{{ consecuencia
@@ -123,18 +126,18 @@ def consecuencia(m):
         os.system("polybar-msg hook tomato 1")
 # }}}
 
-# {{{ restart
+# {{{ restart no funcó
 
-@bot.message_handler(commands=['restart'])
-def apagar(m):
-    cid = m.chat.id
-    if cid not in whitelist:
-        bot.send_message(cid,'es un bot privado, por favor no interferir')
-        bot.send_message(cid,f'{cid}')
-        return
-    else:
-        os.system('cd /home/tdu/code/tomates && git pull origin main')
-        os.system("pid=$(ps -ef | grep tdubot | awk '{print $2}' | head -n 1 | awk '{match($0,/[0-9]+/); print substr($0,RSTART,RLENGTH)}') && kill $pid && st -e tdubot.py")
+# @bot.message_handler(commands=['restart'])
+# def apagar(m):
+    # cid = m.chat.id
+    # if cid not in whitelist:
+        # bot.send_message(cid,'es un bot privado, por favor no interferir')
+        # bot.send_message(cid,f'{cid}')
+        # return
+    # else:
+        # os.system('cd /home/tdu/code/tomates && git pull origin main')
+        # os.system("pid=$(ps -ef | grep tdubot | awk '{print $2}' | head -n 1 | awk '{match($0,/[0-9]+/); print substr($0,RSTART,RLENGTH)}') && kill $pid && st -e tdubot.py")
 # }}}
 
 # }}}
@@ -168,6 +171,7 @@ def tomates_hechos(fecha):
 @bot.message_handler(commands=['tomate'])
 def hola(msj):
     cargar()
+    os.system('dropbox start')
     fecha_tomate = datetime.fromtimestamp(msj.json['date'])
     global date
     date = fecha_tomate.strftime('%d/%m/%Y')

@@ -9,6 +9,7 @@ from menu import *
 from inputimeout import inputimeout, TimeoutOccurred
 from categorias_tomates import academic as ac
 from categorias_tomates import extra_academic as ex_ac
+from motivation import frases as frases
 
 def limpiar():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -60,6 +61,7 @@ def notif_sound():
     sound(3,150)
     sound(1,350)
     sound(1,400)
+    sound(1,500)
 
 def tomate(category):
     now = datetime.now()
@@ -72,7 +74,7 @@ def tomate(category):
     t = mins
     while t:
         limpiar()
-        print(f"Estás en Tomate, quedan {t} minutos")#, end="\r")
+        print(f"Estás en Tomate, quedan {t} minutos,\n{frases[0]}")
         time.sleep(60)
         t -= 1
     if date in registro.keys():
@@ -88,9 +90,27 @@ def tomate(category):
     notif_sound()
     os.system("notify-send -t 60000 \"Fin del tomate\"")
     os.system("polybar-msg hook tomato 1")
+    os.system('dropbox start')
     descanso()
 
+# lista_ac = [Action(i, lambda: tomate(i)) for i in ac]
+# lista_ex_ac = [Action(i, lambda: tomate(i)) for i in ex_ac]
 main = Menu("Categorías", [
-    Menu("academic", [Action(i, lambda: tomate(i)) for i in ac]),
-    Menu("extra academic", [Action(i, lambda: tomate(i)) for i in ex_ac])])
+    Menu(
+        "academic",
+        [
+        Action(ac[0], lambda: tomate(ac[0])),
+        Action(ac[1], lambda: tomate(ac[1])),
+        Action(ac[2], lambda: tomate(ac[2])),
+        Action(ac[3], lambda: tomate(ac[3])),
+        Action(ac[4], lambda: tomate(ac[4]))
+        ]),
+    Menu("extra academic",
+        [
+        Action(ex_ac[0], lambda: tomate(ex_ac[0])),
+        Action(ex_ac[1], lambda: tomate(ex_ac[1])),
+        Action(ex_ac[2], lambda: tomate(ex_ac[2]))
+        ])])
+
+
 main.navigate()
