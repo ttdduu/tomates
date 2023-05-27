@@ -74,7 +74,7 @@ def tomate(category):
     t = mins
     while t:
         limpiar()
-        print(f"Estás en Tomate, quedan {t} minutos,\n{frases[0]}")
+        print(f"Estás en Tomate, quedan {t} minutos,\n{frases[1]}")
         time.sleep(60)
         t -= 1
     if date in registro.keys():

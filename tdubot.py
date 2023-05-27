@@ -4,6 +4,8 @@
 import telebot
 from telebot import types
 import os
+import sys
+import subprocess
 import time
 from datetime import datetime
 from datetime import timedelta
