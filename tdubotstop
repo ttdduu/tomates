@@ -1,0 +1,2 @@
+pid=$(pgrep -f '/home/tdu/code/tomates/tdubot' | sed '/^$/d')
+kill $pid
