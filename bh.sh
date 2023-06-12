@@ -1,5 +1,5 @@
 #!/usr/bin/zsh
-
+#
 # Names to display
 files_array=(
 	"notas"
