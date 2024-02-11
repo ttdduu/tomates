@@ -5,8 +5,6 @@ import json
 from datetime import datetime, timedelta
 from datetime import date as dt_date
 
-# bh_folder = os.environ.get("brainhub_folder")
-
 home = os.environ.get('HOME')
 dir_path = home
 

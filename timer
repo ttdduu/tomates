@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Usage: ./run_timer.sh [<minutes>]
+# If <minutes> is not provided, will use dmenu to get input.
+
+minutes=$(echo "" | dmenu -p "Enter the number of minutes:")
+## Run the timer script inside swallow.sh to hide the terminal
+python3 /home/ttdduu/code/misc/temporizador.py "$minutes"
+## Get the PID of the last background process
+#terminal_pid=$!
+#
+## Wait for the timer script to finish
+#wait $terminal_pid
+#
+## Once the timer script finishes, kill the terminal process
+#kill $terminal_pid

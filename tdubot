@@ -12,14 +12,14 @@ import json
 from categorias_tomates import academic as ac
 from categorias_tomates import extra_academic as ex_ac
 
-token = '5843649088:AAGzlivbRewGy6opGMLgCACucz_hKJevBlQ'
+token = ''
 bot = telebot.TeleBot(token)
 
 home = os.environ.get('HOME')
 log_comandos_dir = f'{home}/log_telegram.txt'
 log_tomates_dir = f'{home}/log_tomates.json'
 
-whitelist = [865644126]
+whitelist = []
 
 # {{{ comandos
 
@@ -28,11 +28,11 @@ whitelist = [865644126]
 def command_long_text(m):
     cid = m.chat.id
     if cid not in whitelist:
-        bot.send_message(cid,'es un bot privado, por favor no interferir')
+        bot.send_message(cid,'access denied')
         bot.send_message(cid,f'{cid}')
         return
     else:
-        bot.send_message(cid,'funcionó carajo! confirmo!!!!')
+        bot.send_message(cid,'hi!')
 # }}}
 
 # {{{ exec
@@ -92,53 +92,9 @@ def command_long_text(m):
 
 markup = types.ReplyKeyboardMarkup()
 
-markup.row('/tomate','/exc_fondo','/spm')
-markup.row('/social','/ducha','/pos')
-markup.row('/gracias','/lindo','/estudio')
+markup.row('/tomate','/exc')
+markup.row('/social','/estudio')
 
-markup.row('/reg','/imp')
-
-markup.row('/lumbar','/brainweak')
-markup.row('/obstaculo','/sadsocial')
-
-# las de consecuencias
-markup.row('/alarm','/nails','/soltar')
-markup.row('/error','/braindead')
-markup.row('/fatiga','/freeze','/block')
-
-
-# }}}
-
-# {{{ consecuencia
-
-errores = ['braindead','freeze','block','fatiga','nails','error','alarm',\
-        'soltar']
-@bot.message_handler(commands=errores)
-def consecuencia(m):
-    cid = m.chat.id
-    if cid not in whitelist:
-        bot.send_message(cid,'es un bot privado, por favor no interferir')
-        bot.send_message(cid,f'{cid}')
-        return
-    else:
-        os.system('echo {} > /home/tdu/Dropbox/log_tomates.json')
-        os.system('dropbox start')
-        bot.reply_to(m,'borrón y cuenta nueva. Estoy imponiéndome esta consecuencia porque sé que puedo. Quiero mejorar definitivamente. Es el momento de crecer y ser mucho, mucho mejor.')
-        os.system("polybar-msg hook tomato 1")
-# }}}
-
-# {{{ restart no funcó
-
-# @bot.message_handler(commands=['restart'])
-# def apagar(m):
-    # cid = m.chat.id
-    # if cid not in whitelist:
-        # bot.send_message(cid,'es un bot privado, por favor no interferir')
-        # bot.send_message(cid,f'{cid}')
-        # return
-    # else:
-        # os.system('cd /home/tdu/code/tomates && git pull origin main')
-        # os.system("pid=$(ps -ef | grep tdubot | awk '{print $2}' | head -n 1 | awk '{match($0,/[0-9]+/); print substr($0,RSTART,RLENGTH)}') && kill $pid && st -e tdubot.py")
 # }}}
 
 # }}}
@@ -196,7 +152,6 @@ def sumar_tomate():
     else:
         registro[date] = {category: 1}
     guardar()
-    '''lo hago sin hms xq no es relevante la info de cuándo hago cada tomate'''
     os.system('dropbox start')
     os.system("polybar-msg hook tomato 1")
 
